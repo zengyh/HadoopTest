@@ -29,6 +29,30 @@
 	</dependencies>
 
 	<build>
+	    <!-- 默认源代码目录 -->
+		<sourceDirectory>src</sourceDirectory>
+		<outputDirectory>${project.build.directory}/classes</outputDirectory> <!-- ${project.build.directory}就是我们通常看到的target目录 -->
+		<!-- 默认测试源代码目录 -->
+		<testSourceDirectory>test</testSourceDirectory>
+		<testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+		<!-- 默认资源目录 -->
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+		</resources>
+		<!-- 默认测试资源目录 -->
+		<testResources>
+			<testResource>
+				<directory>test</directory>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+			</testResource>
+		</testResources>
 		<pluginManagement>
 			<plugins>
 				<plugin>
