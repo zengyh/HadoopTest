@@ -17,12 +17,28 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-    <property> 
-       <name>fs.default.name</name> 
-       <value>hdfs://hadoop:9000</value> 
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://namenode1:9000</value>
+    </property>
+	<property>
+        <name>hadoop.tmp.dir</name>
+        <value>/usr/local/hadoop/tmp</value>
+    </property>
+	<property>
+        <name>fs.trash.interval</name>
+        <value>10080</value>
+        <description>
+		     文件存放到回收站的有效时间，单位是分钟，超过了这个有效时间，则会自动删除该文件！
+			 默认值为0，表示删除的文件不会放到回收站，直接删除！！
+        </description>
     </property>
     <property>
-       <name>hadoop.tmp.dir</name>
-       <value>/usr/local/hadoop/tmp</value>
-    </property>     
+       <name>fs.trash.checkpoint.interval</name>
+       <value>10080</value>
+       <description>
+             回收站文件的检查间隔，应该是小于或者等于fs.trash.interval，即检查回收站的文件是否到了存放的
+             有效时间。默认值为0，表示等于检查间隔和fs.trash.interval的值。
+       </description>
+    </property>
 </configuration>

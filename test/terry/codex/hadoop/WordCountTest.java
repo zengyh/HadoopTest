@@ -1,6 +1,4 @@
-package com.codex.hadoop;
-
-import java.io.IOException;
+package terry.codex.hadoop;
 
 import junit.framework.TestCase;
 
@@ -14,8 +12,8 @@ import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.TextInputFormat;
 import org.apache.hadoop.mapred.TextOutputFormat;
 
-import com.codex.hadoop.WordCount.WordCountMapper;
-import com.codex.hadoop.WordCount.WordCountReducer;
+import terry.codex.hadoop.WordCount.WordCountMapper;
+import terry.codex.hadoop.WordCount.WordCountReducer;
 
 /**
  * @author yh.zeng
@@ -23,15 +21,16 @@ import com.codex.hadoop.WordCount.WordCountReducer;
  */
 public class WordCountTest extends TestCase {
 
-	public void test1() throws IOException{
-		String input = "hdfs://hadoop:9000/test-dir";
-		String output = "hdfs://hadoop:9000/test-dir/result";
+	public void test1() throws Exception{
+		String input = "hdfs://namenode1:9000/user/testdir/mapreduce/wordcount/input";
+		String output = "hdfs://namenode1:9000/user/testdir/mapreduce/wordcount/output";
 
 		JobConf conf = new JobConf(WordCount.class);
 		conf.setJobName("WordCount");
 		conf.addResource("classpath:/core-site.xml");
 		conf.addResource("classpath:/hdfs-site.xml");
 		conf.addResource("classpath:/mapred-site.xml");
+		conf.addResource("classpath:/yarn-site.xml");
 
 		conf.setOutputKeyClass(Text.class);
 		conf.setOutputValueClass(IntWritable.class);

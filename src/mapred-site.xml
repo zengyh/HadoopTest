@@ -17,8 +17,18 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-   <property> 
-       <name>mapred.job.tracker</name> 
-       <value>hadoop:9001</value> 
-   </property> 
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+	<property>
+        <name>mapreduce.jobhistory.address</name>
+		<value>namenode1:10020</value>
+		<description>MapReduce JobHistory Server IPC host:port</description>
+	</property>
+	<property>
+		<name>mapreduce.jobhistory.webapp.address</name>
+		<value>namenode1:19888</value>
+		<description>MapReduce JobHistory Server Web UI host:port</description>
+	</property>
 </configuration>

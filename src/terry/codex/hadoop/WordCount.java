@@ -1,4 +1,4 @@
-package com.codex.hadoop;
+package terry.codex.hadoop;
 
 /**
  * @author yh.zeng
